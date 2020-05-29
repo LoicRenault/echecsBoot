@@ -1,0 +1,53 @@
+Créer le projet angular (Sven)
+Ajouter le springBoot (Loïc)
+	=>GitInit
+Faire nos branches (chacun)
+
+Loïc
+Authentification/inscription
+	=>Cryptage
+	=>Roles (4 Admins !!!)
+=>Eclipse + Webstorm
+
+Menu :
+Antoine
+MEMBRES (listes, click: fiche)
+Sven
+Tournois (listes, click: infos)
+Club (listes, click: infos)
+Christopher
+Partie 
+Arbitre (listes, click: fiche)
+
+Pour ceux qui ont du temps et qui s'ennuient :
+ACCUEIL(liens vers les categories, un caroussel, présentation du site et buts)
+
+Eclipse: Tests: (page23)
+RestController (& Service) : Eclipse
+Service et pages(html) Liste+ FormulaireEdition : Webstorm
+
+
+Charte graphique:
+	Blanc contrasté	
+	Bannière
+	Menu
+	Icones
+	Footer
+
+Evaluer le temps :
+(Règles
+News
+Historique
+Contenu Péda
+(strats
+nous contacter))
+
+Questions :
+Service de Eclipse plus besoin ?
+=>laisser pour web service
+Recrée un Springboot ? 
+
+1ère connexion : Login et mot de passe attribués par l’Administrateur - Puis demande de modification du mot de passe
+>Mise en ligne ?
+
+((((Trad ?))))
