@@ -1,7 +1,7 @@
 package echecsBoot.entity;
 
 public enum Niveau {
-	AF4("Arbitre f�d�ral 4"), AF3("Arbitre f�d�ral 3"), AF2("Arbitre f�d�ral 2"), AF1("Arbitre f�d�ral 1") , AI("Arbitre international");
+	AF4("Arbitre fédéral 4"), AF3("Arbitre fédéral 3"), AF2("Arbitre fédéral 2"), AF1("Arbitre fédéral 1") , AI("Arbitre international");
 
 	private String label;
 

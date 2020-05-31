@@ -33,6 +33,9 @@ public class Tournoi {
 	@Column(name = "id_tournoi")
 	private Integer id;
 	@JsonView(Views.Common.class)
+	@Column(name = "nom_tournoi", length = 150)
+	private String nom;
+	@JsonView(Views.Common.class)
 	@Column(name = "date_tournoi")
 	@Temporal(TemporalType.DATE)
 	private Date date;
@@ -95,6 +98,14 @@ public class Tournoi {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
 
 	public Date getDate() {
