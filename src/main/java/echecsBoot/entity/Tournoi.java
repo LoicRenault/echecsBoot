@@ -55,11 +55,9 @@ public class Tournoi {
 	@Column(name = "cadence_tournoi", length = 50)
 	@Enumerated(EnumType.STRING)
 	private Cadence cadence;
-	@JsonView(Views.Common.class)
 	@ManyToOne
 	@JoinColumn(name = "arbitre_tournoi", foreignKey = @ForeignKey(name = "tournoi_arbitre_fk"))
 	private Arbitre arbitre;
-	@JsonView(Views.Common.class)
 	@ManyToOne
 	@JoinColumn(name = "organisateur", foreignKey = @ForeignKey(name = "tournoi_club_fk"))
 	private Club organisateur;
