@@ -39,11 +39,11 @@ public class Partie {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqPartie")
 	@Column(name = "id_partie")
 	private Integer id;
-	@JsonView(Views.Common.class)
+
 	@ManyToOne
 	@JoinColumn(name = "joueur_blancs", foreignKey = @ForeignKey(name = "partie_joueur_blancs_fk"))
 	private Membre joueurBlancs;
-	@JsonView(Views.Common.class)
+
 	@ManyToOne
 	@JoinColumn(name = "joueur_noirs", foreignKey = @ForeignKey(name = "partie_joueur_noirs_fk"))
 	private Membre joueurNoirs;
@@ -61,7 +61,7 @@ public class Partie {
 	@Column(name = "date_partie")
 	@Temporal(TemporalType.DATE)
 	private Date datePartie;
-	@JsonView(Views.Common.class)
+
 	@ManyToOne
 	@JoinColumn(name = "partie_tournoi", foreignKey = @ForeignKey(name = "partie_partie_tournoi_fk"))
 	private Tournoi partieTournoi;
