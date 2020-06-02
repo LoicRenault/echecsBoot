@@ -8,10 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonView;
-
-import echecsBoot.entity.view.Views;
-
 @Entity
 @Table(name = "login")
 public class Login {
