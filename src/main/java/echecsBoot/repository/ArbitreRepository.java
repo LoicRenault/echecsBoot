@@ -14,7 +14,9 @@ import echecsBoot.entity.Tournoi;
 
 public interface ArbitreRepository extends JpaRepository<Arbitre, Integer>{
 	
-	Optional<Arbitre> findByNomAndPrenom(String nom, String prenom);
+	Optional<Arbitre> findByNom(String nom);
+	
+	Optional<Arbitre> findByPrenom(String prenom);
 	
 	List<Arbitre> findByNiveau(Niveau niveau);
 

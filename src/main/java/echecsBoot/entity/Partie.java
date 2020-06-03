@@ -63,7 +63,7 @@ public class Partie {
 	private Date datePartie;
 
 	@ManyToOne
-	@JoinColumn(name = "partie_tournoi", foreignKey = @ForeignKey(name = "partie_partie_tournoi_fk"))
+	@JoinColumn(name = "partie_tournoi", foreignKey = @ForeignKey(name = "partie_tournoi_fk"))
 	private Tournoi partieTournoi;
 
 	public Partie() {

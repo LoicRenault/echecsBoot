@@ -24,6 +24,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import echecsBoot.entity.Membre;
 import echecsBoot.entity.Partie;
 import echecsBoot.entity.view.Views;
 import echecsBoot.repository.PartieRepository;
@@ -99,9 +100,9 @@ public class PartieRestController {
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
-	@GetMapping("/nom/{nom}")
-	public ResponseEntity<Boolean> checkNom(@PathVariable("nom") String nom) {
-		Optional<Partie> opt = partieRepository.findByNom(nom);
+	@GetMapping("/joueurBlancs/{joueurBlancs}")
+	public ResponseEntity<Boolean> checkMembre(@PathVariable("joueurBlancs") Membre joueurBlancs) {
+		Optional<Partie> opt = partieRepository.findByJoueurBlancs(joueurBlancs);
 		System.out.println(opt);
 		if (opt.isPresent()) {
 			return new ResponseEntity<>(false,HttpStatus.OK);
