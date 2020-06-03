@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Version;
@@ -78,13 +79,8 @@ public class Membre {
 	@OneToMany(mappedBy = "id.participant")
 	private List<Participation> participations;
 	@JsonView(Views.Common.class)
-	@Column(name = "password", length = 150, nullable = false)
-	@Length(min = 4)
-	private String password;
-	@JsonView(Views.Common.class)
-	@Enumerated(EnumType.STRING)
-	@Column(name = "role")
-	private Role role;
+	@OneToOne(mappedBy = "membre" )
+	private Login login;
 
 	public Membre() {
 	}
@@ -215,6 +211,14 @@ public class Membre {
 
 	public void setParticipations(List<Participation> participations) {
 		this.participations = participations;
+	}
+
+	public Login getLogin() {
+		return login;
+	}
+
+	public void setLogin(Login login) {
+		this.login = login;
 	}
 
 	@Override

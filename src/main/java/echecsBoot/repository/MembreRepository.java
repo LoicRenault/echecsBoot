@@ -18,6 +18,8 @@ public interface MembreRepository extends JpaRepository<Membre, Integer> {
 	List<Membre> findByClub(Club club);
 
 	List<Membre> findByElo(Integer elo);
+	
+	Optional<Membre> findByNom(String nom);
 
 	@Query("select MAX(e.elo) from HistoriqueElo e where e.id.membre.id = :id")
 	Integer findEloMaxById(@Param("id") Integer id);

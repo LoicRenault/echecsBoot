@@ -4,8 +4,11 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,6 +22,9 @@ public class Login {
 	private boolean enable;
 	@OneToMany(mappedBy = "login")
 	private Set<LoginRole> roles;
+	@OneToOne
+	@JoinColumn(name = "loginmembre", foreignKey = @ForeignKey(name = "login_loginmembre_fk"))
+	private Membre membre;
 
 	public Login() {
 
@@ -54,6 +60,14 @@ public class Login {
 
 	public void setRoles(Set<LoginRole> roles) {
 		this.roles = roles;
+	}
+
+	public Membre getMembre() {
+		return membre;
+	}
+
+	public void setMembre(Membre membre) {
+		this.membre = membre;
 	}
 
 	@Override
