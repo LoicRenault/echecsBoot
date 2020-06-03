@@ -39,7 +39,6 @@ public class Arbitre {
 	@Column(name = "niveau", length = 5)
 	@Enumerated(EnumType.STRING)
 	private Niveau niveau;
-	@JsonView(Views.Common.class)
 	@OneToMany(mappedBy = "arbitre")
 	private List<Tournoi> tournois;
 

@@ -42,7 +42,6 @@ public class Club {
 	@JsonView(Views.Common.class)
 	@OneToMany(mappedBy = "club")
 	private List<Membre> membres;
-	@JsonView(Views.Common.class)
 	@OneToMany(mappedBy = "organisateur")
 	private List<Tournoi> tournois;
 	@Version
