@@ -1,6 +1,7 @@
 package echecsBoot.restController;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -101,4 +102,51 @@ public class MembreRestController {
 		}
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
+
+	@GetMapping("/infos/{id}")
+	@JsonView(Views.Common.class)
+	public ResponseEntity<ArrayList<Integer>> infos(@PathVariable("id") Integer id) {
+		ArrayList<Integer> infos = new ArrayList<>();
+		Optional<Membre> opt = membreRepository.findById(id);
+		if (opt.isPresent()) {
+			if (membreRepository.findEloMaxById(id) != null) {
+				infos.add(membreRepository.findEloMaxById(id));
+			} else {
+				infos.add(0);
+			}
+			if (membreRepository.countPartiesById(id) != null) {
+				infos.add(membreRepository.countPartiesById(id));
+			} else {
+				infos.add(0);
+			}
+			if (membreRepository.countVictoiresById(id) != null) {
+				infos.add(membreRepository.countVictoiresById(id));
+			} else {
+				infos.add(0);
+			}
+			if (membreRepository.countNulsById(id) != null) {
+				infos.add(membreRepository.countNulsById(id));
+			} else {
+				infos.add(0);
+			}
+			if (membreRepository.countDefaitesById(id) != null) {
+				infos.add(membreRepository.countDefaitesById(id));
+			} else {
+				infos.add(0);
+			}
+			if (membreRepository.countVictoiresById(id) != null && membreRepository.countPartiesById(id) != 0) {
+				infos.add((membreRepository.countVictoiresById(id) * 100) / membreRepository.countPartiesById(id));
+			} else {
+				infos.add(0);
+			}
+			if (membreRepository.countTournoi(id) != null) {
+				infos.add(membreRepository.countTournoi(id));
+			} else {
+				infos.add(0);
+			}
+			return new ResponseEntity<ArrayList<Integer>>(infos, HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	}
+
 }

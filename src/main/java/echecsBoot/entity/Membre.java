@@ -14,7 +14,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Version;
@@ -59,10 +58,8 @@ public class Membre {
 	@JsonView(Views.Common.class)
 	@Embedded
 	private Adresse adresse;
-	@JsonView(Views.Common.class)
 	@OneToMany(mappedBy = "joueurBlancs")
 	private List<Partie> partieBlancs;
-	@JsonView(Views.Common.class)
 	@OneToMany(mappedBy = "joueurNoirs")
 	private List<Partie> partieNoirs;
 	@JsonView(Views.Common.class)
@@ -78,9 +75,7 @@ public class Membre {
 	@JsonView(Views.Common.class)
 	@OneToMany(mappedBy = "id.participant")
 	private List<Participation> participations;
-	@JsonView(Views.Common.class)
-	@OneToOne(mappedBy = "membre" )
-	private Login login;
+
 
 	public Membre() {
 	}
@@ -213,14 +208,6 @@ public class Membre {
 		this.participations = participations;
 	}
 
-	public Login getLogin() {
-		return login;
-	}
-
-	public void setLogin(Login login) {
-		this.login = login;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -245,4 +232,5 @@ public class Membre {
 			return false;
 		return true;
 	}
+
 }
