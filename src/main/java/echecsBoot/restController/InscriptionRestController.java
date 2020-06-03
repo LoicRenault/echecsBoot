@@ -21,6 +21,7 @@ import echecsBoot.entity.Login;
 import echecsBoot.entity.LoginRole;
 import echecsBoot.entity.Role;
 import echecsBoot.repository.LoginRepository;
+import echecsBoot.repository.MembreRepository;
 import echecsBoot.repository.RoleRepository;
 
 @RestController
@@ -33,6 +34,8 @@ public class InscriptionRestController {
 	private RoleRepository roleRepository;
 	@Autowired
 	private PasswordEncoder passwordEncoder;
+	@Autowired
+	private MembreRepository membreRepository;
 
 	@PostMapping({ "", "/" })
 	public ResponseEntity<Void> inscription(@Valid @RequestBody Login login, BindingResult br) {
@@ -45,6 +48,7 @@ public class InscriptionRestController {
 		}
 		login.setPassword(passwordEncoder.encode(login.getPassword()));
 		login.setEnable(true);
+		membreRepository.save(login.getMembre());
 		loginRepository.save(login);
 		LoginRole loginRole = new LoginRole();
 		loginRole.setLogin(login);
