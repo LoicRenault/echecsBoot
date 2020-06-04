@@ -13,6 +13,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import echecsBoot.entity.view.Views;
+
 @Entity
 @Table(name = "login_role")
 @SequenceGenerator(name = "seqLoginRole", sequenceName = "seq_login_role", initialValue = 100, allocationSize = 1)
@@ -23,6 +27,7 @@ public class LoginRole {
 	@ManyToOne
 	@JoinColumn(name = "username", foreignKey = @ForeignKey(name = "login_role_username_fk"))
 	private Login login;
+	@JsonView(Views.Common.class)
 	@Enumerated(EnumType.STRING)
 	@Column(name = "role", length = 30)
 	private Role role;

@@ -22,7 +22,7 @@ import echecsBoot.entity.LoginRole;
 import echecsBoot.entity.Role;
 import echecsBoot.repository.LoginRepository;
 import echecsBoot.repository.MembreRepository;
-import echecsBoot.repository.RoleRepository;
+import echecsBoot.repository.LoginRoleRepository;
 
 @RestController
 @RequestMapping("/rest/inscription")
@@ -31,7 +31,7 @@ public class InscriptionRestController {
 	@Autowired
 	private LoginRepository loginRepository;
 	@Autowired
-	private RoleRepository roleRepository;
+	private LoginRoleRepository roleRepository;
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	@Autowired

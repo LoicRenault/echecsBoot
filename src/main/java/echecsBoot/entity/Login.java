@@ -11,15 +11,22 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import echecsBoot.entity.view.Views;
+
 @Entity
 @Table(name = "login")
 public class Login {
+	@JsonView(Views.Common.class)
 	@Id
 	@Column(name = "username", length = 100)
 	private String login;
+	@JsonView(Views.Common.class)
 	@Column(name = "pass", length = 100, nullable = false)
 	private String password;
 	private boolean enable;
+	@JsonView(Views.Common.class)
 	@OneToMany(mappedBy = "login")
 	private Set<LoginRole> roles;
 	@OneToOne

@@ -32,12 +32,13 @@ public class LoginRestController {
 
 	@GetMapping("/{id}")
 	@JsonView(Views.Common.class)
-	public ResponseEntity<Login> findById(@PathVariable("id") String id) {
-		Optional<Login> opt = loginRepository.findByLogin(id);
+	public ResponseEntity<Login> findByIdWithRoles(@PathVariable("id") String id) {
+		Optional<Login> opt = loginRepository.findByIdWithRoles(id);
 		if (opt.isPresent()) {
 			return new ResponseEntity<Login>(opt.get(), HttpStatus.OK);
 		}
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
+	
 
 }
