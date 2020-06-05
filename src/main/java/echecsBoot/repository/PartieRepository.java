@@ -23,13 +23,13 @@ public interface PartieRepository extends JpaRepository<Partie, Integer> {
 	Optional<Partie> findByJoueurNoirs(@Param("joueurNoirs") Membre joueurNoirs);
 	
 	//@Query("select p from Partie p where p.date=:date")
-	//List<Partie> findByDate(@Param("date_partie") Date datePartie);
+	//List<Partie> findByDate(@Param("datePartie") Date datePartie);
 
 	@Query("select p from Partie p where p.cadence=:cadence")
 	List<Partie> findByCadence(@Param("cadence") Cadence cadence);
 
 	//@Query("select p from Partie p where p.organisateur=:club")
-	//List<Partie> findByClub(@Param("club") Club organisateur);
+	//List<Partie> findByClub(@Param("organisateur") Club organisateur);
 	
 	//@Query("select p from Partie p where p.arbitre =:arbitre")
 	//List<Partie> findByArbitre(@Param("arbitre") Arbitre arbitre);
